@@ -1,4 +1,6 @@
-## Windows Log Troubleshooting with Event Viewer 
+## Windows Event Log Analysis
+
+---
 
 ### Overview
 
@@ -34,8 +36,9 @@ The main troubleshooting workflow was:
 Windows / IT Support Hands-On Lab
 
 ---
+---
 
-## 1. Start the Windows Lab
+### 1. Start the Windows Lab
 
 **1.** Start the Qwiklabs lab.
 
@@ -47,7 +50,7 @@ Windows / IT Support Hands-On Lab
 
 ---
 
-## 2. Open Windows Event Viewer
+### 2. Open Windows Event Viewer
 
 Windows **Event Viewer** is used to view system and application logs.
 
@@ -86,7 +89,7 @@ The application logs contain the logs used for this lab.
 
 ---
 
-## 3. Identify the Lab Errors
+### 3. Identify the Lab Errors
 
 Scroll through the Application logs and look for entries that:
 
@@ -97,9 +100,9 @@ The lab contains five issues that need to be investigated and fixed.
 
 ---
 
-## 4. Troubleshoot Low Disk Space
+### 4. Troubleshoot Low Disk Space
 
-### Problem
+#### Problem
 
 Find the log with:
 
@@ -116,7 +119,7 @@ The log identifies a large file but does not provide the file name.
 
 ---
 
-### Find the Large File
+#### Find the Large File
 
 Open **File Explorer**.
 
@@ -150,7 +153,7 @@ In the lab, the file was approximately **10 GB**.
 
 ---
 
-### Delete the File
+#### Delete the File
 
 **1.** Right-click the large file.
 
@@ -166,15 +169,15 @@ In the lab, the file was approximately **10 GB**.
 
 ![9](https://i.imgur.com/3cklKxU.png)
 
-### Important Note
+#### Important Note
 
 Deleting the file fixes the disk-space problem, but the original Event Viewer log will **remain**. Event logs are not automatically deleted after the underlying problem is fixed.
 
 ---
 
-## 5. Remove a Corrupted File
+### 5. Remove a Corrupted File
 
-### Task
+#### Task
 
 Navigate to the:
 
@@ -194,7 +197,7 @@ Delete the file.
 
 ![10](https://i.imgur.com/2NindWA.png)
 
-### Skill Demonstrated
+#### Skill Demonstrated
 
 * File navigation
 * File identification
@@ -203,9 +206,9 @@ Delete the file.
 
 ---
 
-## 6. Update VLC Media Player
+### 6. Update VLC Media Player
 
-### Steps
+#### Steps
 
 1. Open **VLC Media Player**.
 
@@ -219,7 +222,7 @@ Delete the file.
 ![14](https://i.imgur.com/euFSUzk.png)
 ![15](https://i.imgur.com/fbkzW0p.png)
 
-### Skill Demonstrated
+#### Skill Demonstrated
 
 * Software maintenance
 * Updating outdated applications
@@ -227,13 +230,13 @@ Delete the file.
 
 ---
 
-## 7. Find and Terminate a Process
+### 7. Find and Terminate a Process
 
-### Step 1: Open PowerShell
+#### Step 1: Open PowerShell
 
 Open **Windows PowerShell**.
 
-### Step 2: Find the Process
+#### Step 2: Find the Process
 
 Search for:
 
@@ -243,7 +246,7 @@ totally_not_malicious
 
 Identify its **Process ID (PID)**.
 
-### Step 3: Terminate the Process
+#### Step 3: Terminate the Process
 
 Use:
 
@@ -251,7 +254,7 @@ Use:
 taskkill /F /PID [PROCESS ID]
 ```
 
-### Step 4: Verify
+#### Step 4: Verify
 
 Search for the process again.
 
@@ -259,7 +262,7 @@ If the process no longer exists, the termination was successful.
 
 ![16](https://i.imgur.com/NZKhkOL.png)
 
-### Skill Demonstrated
+#### Skill Demonstrated
 
 * Process monitoring
 * PID identification
@@ -269,9 +272,9 @@ If the process no longer exists, the termination was successful.
 
 ---
 
-## 8. Modify File Permissions
+### 8. Modify File Permissions
 
-### Task
+#### Task
 
 Navigate to:
 
@@ -291,7 +294,7 @@ After changing the permissions, verify that the new permissions were applied suc
 
 ![17](https://i.imgur.com/sQJ9BMA.png)
 
-### Skill Demonstrated
+#### Skill Demonstrated
 
 * Windows file permissions
 * Access control
@@ -300,7 +303,7 @@ After changing the permissions, verify that the new permissions were applied suc
 
 ---
 
-## 9. Troubleshooting Workflow
+### 9. Troubleshooting Workflow
 
 The overall troubleshooting process used in this lab can be summarized as:
 
@@ -323,8 +326,9 @@ The overall troubleshooting process used in this lab can be summarized as:
 This is a useful workflow for IT Support and cybersecurity troubleshooting.
 
 ---
+---
 
-## Key Concepts
+### Key Concepts
 
 | Concept          | Description                                                      |
 | ---------------- | ---------------------------------------------------------------- |
@@ -339,8 +343,9 @@ This is a useful workflow for IT Support and cybersecurity troubleshooting.
 | Disk Space       | Available storage capacity on a system                           |
 
 ---
+---
 
-## Cybersecurity Relevance
+### Cybersecurity Relevance
 
 Log analysis is an important skill for both **IT Support** and **SOC Analyst** roles.
 
@@ -372,10 +377,11 @@ Verify
 For a SOC Analyst, the ability to understand **what happened, when it happened, what caused it, and what action was taken** is essential.
 
 ---
+---
 
-## Troubleshooting Notes
+### Troubleshooting Notes
 
-### Event Viewer contains many logs
+#### Event Viewer contains many logs
 
 Focus on entries that:
 
@@ -383,7 +389,7 @@ Focus on entries that:
 * Were generated around the time the lab started
 * Match the event IDs or problems described in the lab
 
-### Large files are difficult to find
+#### Large files are difficult to find
 
 Use:
 
@@ -391,17 +397,18 @@ Use:
 File Explorer → C:\ → Search → Size → Gigantic
 ```
 
-### A deleted problem still appears in Event Viewer
+#### A deleted problem still appears in Event Viewer
 
 This is expected. Fixing the underlying issue does not remove the historical event from the log.
 
-### A process does not terminate
+#### A process does not terminate
 
 Verify that you are using the correct **PID** and run PowerShell with the appropriate permissions.
 
 ---
+---
 
-## Skills Demonstrated
+### Skills Demonstrated
 
 * Windows Event Viewer
 * Log analysis
